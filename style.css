@@ -138,7 +138,7 @@ body {
     transition: 0.2s;
   }
 
-  /* .btn-correct {
+  .btn-correct {
     border: 1px solid #0dd6f8;
     font-size: 12px;
     border: 2px solid #2a2f36;
@@ -150,7 +150,7 @@ body {
     font-size: 12px;
     outline: none;
     transition: 0.2s;
-  } */
+  }
   
   .btn-remove:hover {
     background-color: #535151;

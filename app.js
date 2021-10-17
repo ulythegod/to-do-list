@@ -3,7 +3,10 @@ Vue.createApp({
         return {
             valueInput: '',
             needDoList: [],
-            copmpleteList: []
+            copmpleteList: [],
+            visible: true,
+            visibleCorrect: false,
+            changedItemId: null
         };
     },
     methods: {
@@ -11,7 +14,9 @@ Vue.createApp({
             this.valueInput = event.target.value;
         },
         addTask () {
-            if (this.valueInput === '') { return };
+            if (this.valueInput === '') { 
+                return 
+            };
             this.needDoList.push({
                 title: this.valueInput,
                 id: Math.random()
@@ -37,6 +42,20 @@ Vue.createApp({
             } else {
                 this.copmpleteList = [];
             }
+        },
+        correctTask(index) {
+            this.valueInput = this.needDoList[index].title;
+            this.visible = false;
+            this.visibleCorrect = true;
+            this.changedItemId = index;
+        },
+        correctTaskClick() {
+            if (this.valueInput === '' && this.changedItemId === null) {
+                 return 
+            };
+            this.needDoList[this.changedItemId].title = this.valueInput;
+            this.valueInput = '';
+            this.changedItemId = null;
         }
     }
 }).mount('#app');

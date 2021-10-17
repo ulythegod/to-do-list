@@ -20,7 +20,8 @@
                 </div>
                 <div class="form">
                     <input type="text" v-on:keypress.enter="addTask" v-bind:value="valueInput" v-on:input="handleInput">
-                    <button class="btn" v-on:click="addTask">Добавить новую задачу</button>
+                    <button class="btn" v-show="visible" v-on:click="addTask">Добавить новую задачу</button>
+                    <button class="btn" v-show="visibleCorrect" v-on:click="correctTaskClick">Сохранить изменения</button>
                 </div>
             </div>
         </div>
@@ -38,6 +39,7 @@
                         <input type="checkbox" v-on:change="doCheck(index, 'need')">
                         <span>{{mask.title}}</span>
                     </div>
+                    <button class="btn-correct" v-on:click="correctTask(index)">Редактировать</button>
                     <button class="btn-remove" v-on:click="removeMask(index, 'need')">Удалить</button>
                 </li>
             </ul>
